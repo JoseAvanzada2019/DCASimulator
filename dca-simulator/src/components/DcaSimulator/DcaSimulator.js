@@ -115,7 +115,9 @@ const DcaSimulator = ({ callServiceHandler }) => {
   return (
     <div className="container">
       <Header title={title} />
-      <InvestmentSummary />
+      <InvestmentSummary 
+        details={details}
+      />
       <div className="row">
         <div className="col-md-4">
             <DcaForm 
@@ -126,9 +128,10 @@ const DcaSimulator = ({ callServiceHandler }) => {
         </div>
         <div className="col-md-8">
           <div className='chart-container'>
-            {details &&
+            {Object.keys(details).length > 0 &&
               <DcaChart 
                 details={details}
+                formData={formData}
               />
             }
             {Object.keys(details).length > 0 && Object.keys(formData).length > 0 &&

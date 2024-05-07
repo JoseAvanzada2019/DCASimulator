@@ -1,12 +1,39 @@
 // InvestmentSummary.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './InvestmentSummary.scss';
 
-const InvestmentSummary = () => {
-  const summaryItems = [
-    { label: "Total Investment", value: "$1000" },
-    { label: "Total Portfolio Value", value: "$1200" },
-    { label: "Profit", value: "$200" }
-];
+const InvestmentSummary = ({ details }) => {
+  const [summaryItems, setSummary] = useState([
+    { label: "Total invertido", value: "" },
+    { label: "Valor total portafolio", value: "" },
+    { label: "Rendimiento", value: "" }
+  ])
+
+  useEffect(() => {
+    if (Object.keys(details).length > 0) {
+      const dataLastMonth = getDataFromLastDate(details)
+      setSummary(
+        [
+          { label: "Total invertido", value: dataLastMonth.investedAmount },
+          { label: "Valor total portafolio", value: dataLastMonth.portfolioValue },
+          { label: "Rendimiento", value: "% " + dataLastMonth.investmentReturn  }
+        ]
+      )
+    }
+  }, [details]);
+
+  function getDataFromLastDate(details) {
+    // Extract dates and sort them
+    const datesArray = Object.keys(details).sort();
+    
+    // Get the last date
+    const lastDate = datesArray[datesArray.length - 1];
+
+    // Retrieve data associated with the last date
+    const dataFromLastDate = details[lastDate];
+
+    return dataFromLastDate;
+  }
   return (
     <div className="investment-summary">
       {summaryItems.map((item, index) => (

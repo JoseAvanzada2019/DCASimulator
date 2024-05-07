@@ -1,0 +1,30 @@
+.investment-summary {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .summary-item {
+    h3,
+    p{
+        font-size: large; 
+    }
+    margin-bottom: 20px; /* Margin between items */
+    border: 1px solid #ddd; // Add border to the form container
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add shadow to the form container
+    padding: 10px;
+    border-radius: 3px;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .investment-summary {
+      flex-direction: column; /* Items are arranged in a column */
+    }
+  
+    .summary-item {
+      width: 100%; /* Each item takes full width of the container */
+    }
+  }
