@@ -28,9 +28,9 @@ const MonthPicker = ({ onChange }) => {
 
   return (
     <div >
-        <div>
+        <div className="form-groups">
           <div >
-            <label htmlFor="startDate">Start Month</label>
+            <label htmlFor="startDate">Inicio</label>
             <div>
                 <img src={calendarSvg} className="calendar-icon"/>
             </div>
@@ -44,7 +44,7 @@ const MonthPicker = ({ onChange }) => {
             />
           </div>
           <div >
-            <label htmlFor="endDate">End Month</label>
+            <label htmlFor="endDate">Término</label>
             <div>
                 <img src={calendarSvg} className="calendar-icon"/>
             </div>

@@ -60,10 +60,10 @@ export function investmentDetails(initialAmount, prices) {
     const currentValue = amountOfCryptos * prices[key].price;
     const currentReturn = ((currentValue / currentInvestedAmount) - 1) * 100;
     results[key] = {
-      portfolioValue: currentValue.toFixed(3),
+      portfolioValue: currentValue.toFixed(1),
       investedAmount: currentInvestedAmount,
       cryptoAmount: amountOfCryptos.toFixed(8),
-      investmentReturn: currentReturn.toFixed(3),
+      investmentReturn: currentReturn.toFixed(1),
       priceToDate: prices[key].price
     };
   });

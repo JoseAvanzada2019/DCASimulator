@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import DcaForm from './DcaForm';
-import DcaChart from './DcaChart';
-import DcaTable from './DcaTable';
-import InvestmentSummary from './InvestmentSummary';
+import DcaForm from './DcaForm/DcaForm';
+import DcaChart from './DcaChart/DcaChart';
+import DcaTable from './DcaTable/DcaTable';
+import InvestmentSummary from './DcaInvestmentSummary/InvestmentSummary';
 import Header from './Header';
 import Loader from '../spinner/spinner';
 import { addArraysWithoutRepeat, dateToTimestamp, investmentDetails } from '../../utils';
@@ -115,11 +115,8 @@ const DcaSimulator = ({ callServiceHandler }) => {
   return (
     <div className="container">
       <Header title={title} />
-      <InvestmentSummary 
-        details={details}
-      />
       <div className="row">
-        <div className="col-md-4">
+        <div className={`col-md-4 ${Object.keys(details).length > 0 ? "" : "offset-md-4"}`}>
             <DcaForm 
               formData={formData}
               setFormData={setFormData}
@@ -128,6 +125,11 @@ const DcaSimulator = ({ callServiceHandler }) => {
         </div>
         <div className="col-md-8">
           <div className='chart-container'>
+            {Object.keys(details).length > 0 &&
+              <InvestmentSummary 
+                details={details}
+              />
+            }
             {Object.keys(details).length > 0 &&
               <DcaChart 
                 details={details}

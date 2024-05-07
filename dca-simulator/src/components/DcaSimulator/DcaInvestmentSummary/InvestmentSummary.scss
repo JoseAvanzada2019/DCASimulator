@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
   }
   
   .summary-item {
@@ -19,7 +18,7 @@
   }
   
   /* Media query for smaller screens */
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     .investment-summary {
       flex-direction: column; /* Items are arranged in a column */
     }

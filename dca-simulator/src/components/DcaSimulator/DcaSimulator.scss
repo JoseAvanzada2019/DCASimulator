@@ -12,7 +12,11 @@
       .col-md-4 {
         display: flex;
         flex-direction: column;
+        &.centered {
+          align-self: center;
+        }
       }
+
   
       .col-md-8 {
         align-content: center;

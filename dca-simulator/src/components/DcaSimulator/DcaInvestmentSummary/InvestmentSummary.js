@@ -4,8 +4,8 @@ import './InvestmentSummary.scss';
 
 const InvestmentSummary = ({ details }) => {
   const [summaryItems, setSummary] = useState([
-    { label: "Total invertido", value: "" },
-    { label: "Valor total portafolio", value: "" },
+    { label: "Monto invertido", value: "" },
+    { label: "Valor portafolio", value: "" },
     { label: "Rendimiento", value: "" }
   ])
 
@@ -15,7 +15,7 @@ const InvestmentSummary = ({ details }) => {
       setSummary(
         [
           { label: "Total invertido", value: dataLastMonth.investedAmount },
-          { label: "Valor total portafolio", value: dataLastMonth.portfolioValue },
+          { label: "Valor portafolio", value: dataLastMonth.portfolioValue },
           { label: "Rendimiento", value: "% " + dataLastMonth.investmentReturn  }
         ]
       )

@@ -11,15 +11,18 @@
   width: 100%;
   border-collapse: collapse;
   border-radius: 3px;
+  margin-bottom: 20px;
 
   th,
-  td {
+  td{
+    font-size: 12px;
     padding: 8px;
     text-align: left;
   }
 
   th {
     background-color: #cfe0f8;
+    font-size: 12px;
   }
 
   tr:nth-child(even) {
