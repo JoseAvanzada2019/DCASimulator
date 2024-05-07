@@ -5,7 +5,7 @@ import DcaTable from './DcaTable/DcaTable';
 import InvestmentSummary from './DcaInvestmentSummary/InvestmentSummary';
 import Header from './Header';
 import Loader from '../spinner/spinner';
-import { addArraysWithoutRepeat, dateToTimestamp, investmentDetails } from '../../utils';
+import { addArraysWithoutRepeat, investmentDetails } from '../../utils';
 
 const DcaSimulator = ({ callServiceHandler }) => {
   const [loading, setLoading] = useState(false)
