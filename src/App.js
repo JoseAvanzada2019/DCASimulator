@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DcaSimulator from './components/DcaSimulator';
 import { callServiceHandler } from './utils';
 
