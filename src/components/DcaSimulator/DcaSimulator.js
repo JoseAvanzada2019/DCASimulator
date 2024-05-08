@@ -63,17 +63,19 @@ const DcaSimulator = ({ callServiceHandler }) => {
           while (currentTimestamp > lastTimestamp) {
               const url = process.env.REACT_APP_BUDA_API_URL + `/markets/${market_id}/trades?timestamp=${currentTimestamp}&last_timestamp=${lastTimestamp}&limit=100`;
               const resp = await callServiceHandler(url, 'GET', null, setLoading);
-              trades = addArraysWithoutRepeat(trades, resp.trades.entries)
-              
-              
-              // Check if the last timestamp of the resp is within the range
-              if (resp.trades.last_timestamp === lastTimestamp
-                 || resp.trades.last_timestamp === currentTimestamp ||
-                resp.trades.entries.length < 100 ) {
-                break; // If not, break the loop
+              if (resp && !Object.keys(resp).includes("error")) {
+                trades = addArraysWithoutRepeat(trades, resp.trades.entries) 
+                // Check if the last timestamp of the resp is within the range
+                if (resp.trades.last_timestamp === lastTimestamp
+                  || resp.trades.last_timestamp === currentTimestamp ||
+                  resp.trades.entries.length < 100 ) {
+                  break; // If not, break the loop
+                } else {
+                    // Update currentTimestamp to fetch the next batch
+                    currentTimestamp = resp.trades.last_timestamp - 1; // Increment by 1 millisecond to avoid duplicates
+                }
               } else {
-                  // Update currentTimestamp to fetch the next batch
-                  currentTimestamp = resp.trades.last_timestamp - 1; // Increment by 1 millisecond to avoid duplicates
+                console.error('Error fetching markets');
               }
           }
         }
