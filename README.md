@@ -9,7 +9,11 @@ In the project directory, you can run:
 
 ### `yarn`
 
-seguido de:
+followed by:
 
 ### `yarn start`
 
+to access the API
+
+### `npm install -g local-cors-proxy`
+### `lcp --proxyUrl https://www.buda.com/api/v2`
