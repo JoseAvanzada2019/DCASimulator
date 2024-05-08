@@ -32,7 +32,7 @@ const MonthPicker = ({ onChange }) => {
           <div >
             <label htmlFor="startDate">Inicio</label>
             <div>
-                <img src={calendarSvg} className="calendar-icon"/>
+                <img alt='' src={calendarSvg} className="calendar-icon"/>
             </div>
             <DatePicker
                 selected={startDate}
@@ -46,7 +46,7 @@ const MonthPicker = ({ onChange }) => {
           <div >
             <label htmlFor="endDate">Término</label>
             <div>
-                <img src={calendarSvg} className="calendar-icon"/>
+                <img alt='' src={calendarSvg} className="calendar-icon"/>
             </div>
             <DatePicker
                 selected={endDate}

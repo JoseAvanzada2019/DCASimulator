@@ -24,9 +24,8 @@ const DcaSimulator = ({ callServiceHandler }) => {
   useEffect(() => {
     if (Object.keys(prices).length > 0) {
       setDetails(investmentDetails(Number(formData.amount), prices))
-      console.log(details)
     }
-  }, [prices]);
+  }, [prices, formData.amount]);
 
   async function calculateInvestment() {
     try {
