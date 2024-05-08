@@ -47,7 +47,7 @@ const DcaForm = ({ formData, setFormData, calculateInvestment}) => {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="currency">Moneda</label>
+            <label htmlFor="currency">Tipo de cambio</label>
             <select className="half" id="currency" name="currency" value={formData.currency} onChange={handleChange}>
               {Object.keys(baseCurrencyToName).map(key => (
                   <option key={key} value={key}>
