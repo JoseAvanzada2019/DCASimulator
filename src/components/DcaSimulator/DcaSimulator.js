@@ -62,18 +62,18 @@ const DcaSimulator = ({ callServiceHandler }) => {
           // Fetch trades until we cover the entire month
           while (currentTimestamp > lastTimestamp) {
               const url = process.env.REACT_APP_BUDA_API_URL + `/markets/${market_id}/trades?timestamp=${currentTimestamp}&last_timestamp=${lastTimestamp}&limit=100`;
-              const response = await callServiceHandler(url, 'GET', null, setLoading);
-              trades = addArraysWithoutRepeat(trades, response.trades.entries)
+              const resp = await callServiceHandler(url, 'GET', null, setLoading);
+              trades = addArraysWithoutRepeat(trades, resp.trades.entries)
               
               
-              // Check if the last timestamp of the response is within the range
-              if (response.trades.last_timestamp === lastTimestamp
-                 || response.trades.last_timestamp === currentTimestamp ||
-                response.trades.entries.length < 100 ) {
+              // Check if the last timestamp of the resp is within the range
+              if (resp.trades.last_timestamp === lastTimestamp
+                 || resp.trades.last_timestamp === currentTimestamp ||
+                resp.trades.entries.length < 100 ) {
                 break; // If not, break the loop
               } else {
                   // Update currentTimestamp to fetch the next batch
-                  currentTimestamp = response.trades.last_timestamp - 1; // Increment by 1 millisecond to avoid duplicates
+                  currentTimestamp = resp.trades.last_timestamp - 1; // Increment by 1 millisecond to avoid duplicates
               }
           }
         }
