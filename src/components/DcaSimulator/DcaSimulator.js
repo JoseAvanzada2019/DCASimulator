@@ -75,7 +75,7 @@ const DcaSimulator = ({ callServiceHandler }) => {
                     currentTimestamp = resp.trades.last_timestamp - 1; // Increment by 1 millisecond to avoid duplicates
                 }
               } else {
-                console.error('Error fetching markets');
+                break;
               }
           }
         }
