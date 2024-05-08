@@ -55,9 +55,7 @@ const DcaSimulator = ({ callServiceHandler }) => {
           const month = firstDay.getMonth();
           // Calculate timestamps for the start and end of the month
           const startOfMonthTimestamp = new Date(year, month + 1, 1).setUTCHours(0, 0, 0, 0); // Set to 00:00:00
-          console.log(startOfMonthTimestamp)
           const endTimestamp = new Date(year, month + 1, 1).setUTCHours(12, 0, 0, 0); // Set to 23:59:59
-          console.log(endTimestamp)
           let currentTimestamp = endTimestamp;
           let lastTimestamp = startOfMonthTimestamp;
       

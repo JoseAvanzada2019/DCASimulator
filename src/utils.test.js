@@ -14,7 +14,6 @@ describe('investmentDetails', () => {
     
     // Calculate investment details
     const details = investmentDetails(initialAmount, prices);
-    console.log(details)
     
     // Check if the details are calculated correctly for each date
     expect(details['2024-01']).toEqual({
